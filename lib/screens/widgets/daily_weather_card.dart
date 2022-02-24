@@ -35,7 +35,7 @@ class DailyWeatherCard extends StatelessWidget {
         children: [
           Row(children: [
             const Icon(
-              Icons.pin_drop,
+              Icons.pin_drop_outlined,
               color: Colors.orange,
               size: 15,
             ),
