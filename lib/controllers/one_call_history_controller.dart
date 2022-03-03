@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
 
 import 'package:weather_map/service/api_client.dart';
@@ -10,11 +8,17 @@ class OneCallHistoryController extends GetxController {
   var isLoading = true.obs;
   var oneCallHistoryData = OneCallHistoryModel().obs;
 
-  // @override
-  // void onInit() {
-  //   getOneCallDailyApi(lat: 12.9716, lon: 77.5946);
-  //   super.onInit();
-  // }
+  @override
+  void onInit() {
+    getOneCallHistoryApi(
+        lat: 51.5073219,
+        lon: -0.1276474,
+        time: ((DateTime.now().millisecondsSinceEpoch -
+                (24 * 60 * 60 * 1000) -
+                19800000) ~/
+            1000));
+    super.onInit();
+  }
 
   Future<void> getOneCallHistoryApi(
       {required lat, required lon, required time}) async {

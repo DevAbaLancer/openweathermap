@@ -7,11 +7,11 @@ class OneCallDailyController extends GetxController {
   var isLoading = true.obs;
   var oneCallDailyData = OneCallDailyModel().obs;
 
-  // @override
-  // void onInit() {
-  //   getOneCallDailyApi(lat: 12.9716, lon: 77.5946);
-  //   super.onInit();
-  // }
+  @override
+  void onInit() {
+    getOneCallDailyApi(lat: 12.9716, lon: 77.5946);
+    super.onInit();
+  }
 
   Future<void> getOneCallDailyApi({required lat, required lon}) async {
     try {

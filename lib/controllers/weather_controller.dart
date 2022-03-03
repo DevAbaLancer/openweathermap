@@ -9,6 +9,7 @@ class WeatherController extends GetxController {
 
   @override
   void onInit() {
+    getWeatherApi(lat: 51.5073219, lon: -0.1276474);
     super.onInit();
   }
 

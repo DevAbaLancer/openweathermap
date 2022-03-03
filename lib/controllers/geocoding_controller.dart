@@ -6,9 +6,10 @@ class GeocodingController extends GetxController {
   var isLoading = true.obs;
   var geocodeData = GeocodingModel().obs;
   var isNotNullValue = true.obs;
-
   @override
   void onInit() {
+    getGeocodingApi('london');
+
     super.onInit();
   }
 

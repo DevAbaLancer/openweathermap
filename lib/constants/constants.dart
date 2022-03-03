@@ -1,5 +1,7 @@
+import 'package:flutter_config/flutter_config.dart';
+
 class Constants {
-  static const String apiKey = 'API_KEY';
+  static String apiKey = FlutterConfig.get('WEATHER_KEY');
 
   static const String baseUrl = 'http://api.openweathermap.org';
 }
