@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:weather_map/service/api_client.dart';
@@ -27,6 +28,14 @@ class OneCallHistoryController extends GetxController {
 
       oneCallHistoryData.value = (await ApiClient()
           .getOneCallHistoryApi(lat: lat, lon: lon, time: time));
+    } catch (e) {
+      SnackBar(
+          content: Text(
+        e.toString(),
+      ));
+      isLoading(false);
+      oneCallHistoryData.refresh();
+      update();
     } finally {
       isLoading(false);
       oneCallHistoryData.refresh();

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:weather_map/models/weather_model.dart';
@@ -17,6 +18,14 @@ class WeatherController extends GetxController {
     try {
       isLoading(true);
       weatherData.value = await ApiClient().getWeatherApi(lat: lat, lon: lon);
+    } catch (e) {
+      SnackBar(
+          content: Text(
+        e.toString(),
+      ));
+      isLoading(false);
+      weatherData.refresh();
+      update();
     } finally {
       isLoading(false);
       weatherData.refresh();

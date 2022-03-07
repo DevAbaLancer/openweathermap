@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:weather_map/models/one_call_daily_Model.dart';
@@ -18,6 +19,14 @@ class OneCallDailyController extends GetxController {
       isLoading(true);
       oneCallDailyData.value =
           await ApiClient().getOneCallDailyApi(lat: lat, lon: lon);
+    } catch (e) {
+      SnackBar(
+          content: Text(
+        e.toString(),
+      ));
+      isLoading(false);
+      oneCallDailyData.refresh();
+      update();
     } finally {
       isLoading(false);
       oneCallDailyData.refresh();

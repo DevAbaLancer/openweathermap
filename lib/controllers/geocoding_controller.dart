@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather_map/models/geocoding_model.dart';
 import 'package:weather_map/service/api_client.dart';
@@ -22,6 +23,14 @@ class GeocodingController extends GetxController {
       } else {
         isNotNullValue(true);
       }
+    } catch (e) {
+      SnackBar(
+          content: Text(
+        e.toString(),
+      ));
+      isLoading(false);
+      geocodeData.refresh();
+      update();
     } finally {
       isLoading(false);
       geocodeData.refresh();
