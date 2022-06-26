@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
   final WeatherController _weatherModelController =
       Get.put(WeatherController());
 
-  final RxInt _selectedIndex = 1.obs;
+  final RxInt _selectedIndex = 0.obs;
 
   HomePage({Key? key}) : super(key: key);
 
